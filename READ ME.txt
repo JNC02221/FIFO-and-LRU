@@ -1,0 +1,69 @@
+The only file that is needed for compialing prpject 2 is the memsim.cpp file
+
+How to compile: 
+	you run g++ -o memsim memsim.cpp to compile the file or you can 	run make
+
+Running the code:
+	If it is a fifo or lru then you need to send this through
+		./memsim tracefile Nframes algorithm debug/quiet
+	If it is a sfifo then you need to send this through
+		./memsim tracefile Nframes algorithm percentage debug/quiet
+
+	
+Meanings:
+	tracefile- the file that holds the address that need to be looked through 
+	Nframes- the amount of frames that the simulation will use/have
+	algorithm- this is the method that the simulation will run with(fifo,lru,of vms)
+	percentage- this is the amount of the total frames that will be used as the secondary array in segmented fifo(1-100)
+	debig/quiet- this is whether or not you want to see what is happening with every address that is getting sent through(debug or quiet)
+
+
+Example runs:
+
+./memsim bzip.trace 64 fifo quiet
+Frames: 64
+Trace: 1000000
+Reads: 1467
+Writes: 514
+
+
+./memsim bzip.trace 64 vms 0 quiet
+Frames: 64
+Trace: 1000000
+Reads: 1467
+Writes: 514
+
+
+./memsim bzip.trace 64 vms 25 quiet
+Frames: 64
+Trace: 1000000
+Reads: 1367
+Writes: 471
+
+
+./memsim bzip.trace 64 vms 50 quiet
+Frames: 64
+Trace: 1000000
+Reads: 1290
+Writes: 427
+
+
+./memsim bzip.trace 64 vms 75 quiet
+Frames: 64
+Trace: 1000000
+Reads: 1267
+Writes: 416
+
+
+./memsim bzip.trace 64 vms 100 quiet
+Frames: 64
+Trace: 1000000
+Reads: 1264
+Writes: 420
+
+
+./memsim bzip.trace 64 lru quiet
+Frames: 64
+Trace: 1000000
+Reads: 1264
+Writes: 420
